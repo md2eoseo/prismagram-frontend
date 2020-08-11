@@ -4,7 +4,7 @@ import GlobalStyles from "../Styles/GlobalStyles";
 import Theme from "../Styles/Theme";
 import Router from "./Router";
 import { gql } from "apollo-boost";
-import { useQuery } from "react-apollo-hooks";
+import { useQuery } from "@apollo/client";
 import Footer from "./Footer";
 
 const QUERY = gql`
