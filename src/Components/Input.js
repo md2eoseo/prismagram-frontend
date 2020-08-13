@@ -11,10 +11,18 @@ const Container = styled.input`
   padding: 0px 15px;
 `;
 
-const Input = ({ placeholder, required = true, value, onChange, type }) => (
+const Input = ({
+  placeholder,
+  required = true,
+  disabled = false,
+  value,
+  onChange,
+  type,
+}) => (
   <Container
     placeholder={placeholder}
     required={required}
+    disabled={disabled}
     value={value}
     onChange={onChange}
     type={type}
@@ -24,6 +32,7 @@ const Input = ({ placeholder, required = true, value, onChange, type }) => (
 Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   required: PropTypes.bool,
+  disabled: PropTypes.bool,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string,

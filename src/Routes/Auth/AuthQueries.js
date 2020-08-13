@@ -5,3 +5,19 @@ export const LOG_IN = gql`
     requestSecret(email: $email)
   }
 `;
+
+export const CREATE_ACCOUNT = gql`
+  mutation createAccount(
+    $username: String!
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+  ) {
+    createAccount(
+      username: $username
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+    )
+  }
+`;
