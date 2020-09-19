@@ -17,7 +17,8 @@ const Input = ({
   disabled = false,
   value,
   onChange,
-  type,
+  type = "text",
+  className,
 }) => (
   <Container
     placeholder={placeholder}
@@ -26,6 +27,7 @@ const Input = ({
     value={value}
     onChange={onChange}
     type={type}
+    className={className}
   />
 );
 
