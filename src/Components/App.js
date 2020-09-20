@@ -5,7 +5,7 @@ import Theme from "../Styles/Theme";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { HashRouter as Router } from "react-router-dom";
-import Routes from "./Router";
+import Routes from "./Routes";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/client";
 import Footer from "./Footer";
