@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FatText from "../FatText";
 import LikesNumText from "../LikesNumText";
 import Avatar from "../Avatar";
-import { HeartFull, HeartEmpty, Comment } from "../Icons";
+import { HeartFull, HeartEmpty, Comment as CommentIcon } from "../Icons";
 import TextareaAutosize from "react-autosize-textarea";
 
 const Post = styled.div`
@@ -99,6 +99,17 @@ const Textarea = styled(TextareaAutosize)`
   }
 `;
 
+const Comments = styled.ul`
+  margin-top: 10px;
+`;
+
+const Comment = styled.li`
+  margin-bottom: 7px;
+  span {
+    margin-right: 5px;
+  }
+`;
+
 export default ({
   user: { username, avatar },
   caption,
@@ -111,6 +122,7 @@ export default ({
   currentItem,
   toggleLike,
   onKeyUp,
+  comments,
 }) => (
   <Post>
     <Header>
@@ -137,7 +149,7 @@ export default ({
           {isLiked ? <HeartFull /> : <HeartEmpty />}
         </Button>
         <Button>
-          <Comment />
+          <CommentIcon />
         </Button>
       </Buttons>
       <LikesNumText
@@ -153,6 +165,16 @@ export default ({
         <FatText text={username} />
         <Caption>{caption}</Caption>
       </CaptionBox>
+      {comments && (
+        // TODO: show maximum 2 comments
+        <Comments>
+          {comments.map((comment) => (
+            <Comment key={comment.id}>
+              <FatText text={comment.user.username} /> {comment.text}
+            </Comment>
+          ))}
+        </Comments>
+      )}
       <Timestamp>{createdAt}</Timestamp>
       <Textarea
         placeholder={"Add a comment..."}
