@@ -5,6 +5,7 @@ import styled from "styled-components";
 const Text = styled.span`
   font-weight: 600;
   font-size: 15px;
+  user-select: none;
 `;
 
 const LikesNumText = ({ text }) => <Text>{text}</Text>;
