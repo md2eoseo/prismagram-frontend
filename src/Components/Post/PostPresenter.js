@@ -110,6 +110,7 @@ export default ({
   createdAt,
   currentItem,
   toggleLike,
+  onKeyUp,
 }) => (
   <Post>
     <Header>
@@ -153,7 +154,12 @@ export default ({
         <Caption>{caption}</Caption>
       </CaptionBox>
       <Timestamp>{createdAt}</Timestamp>
-      <Textarea placeholder={"Add a comment..."} {...newComment} />
+      <Textarea
+        placeholder={"Add a comment..."}
+        value={newComment.value}
+        onChange={newComment.onChange}
+        onKeyUp={onKeyUp}
+      />
     </Meta>
   </Post>
 );

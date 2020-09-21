@@ -36,9 +36,7 @@ const PostContainer = ({
     }
   };
 
-  useEffect(() => {
-    slide();
-  }, [currentItem]);
+  useEffect(slide, [currentItem]);
 
   const toggleLike = async () => {
     if (isLikedS === true) {
@@ -56,6 +54,16 @@ const PostContainer = ({
       toast.error("Can't register Like");
     }
   };
+
+  const onKeyUp = (e) => {
+    const { keyCode } = e;
+    if (keyCode === 13) {
+      addCommentMutation();
+      comment.setValue("");
+    }
+    return;
+  };
+
   return (
     <PostPresenter
       user={user}
@@ -72,6 +80,7 @@ const PostContainer = ({
       currentItem={currentItem}
       setCurrentItem={setCurrentItem}
       toggleLike={toggleLike}
+      onKeyUp={onKeyUp}
     />
   );
 };
