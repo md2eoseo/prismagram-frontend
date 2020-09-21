@@ -19,7 +19,11 @@ const Container = styled.button`
   }
 `;
 
-const Button = ({ text }) => <Container>{text}</Container>;
+// TODO: make unfollow button different color
+
+const Button = ({ text, onClick }) => (
+  <Container onClick={onClick}>{text}</Container>
+);
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
